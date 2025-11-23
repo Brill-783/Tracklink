@@ -47,10 +47,10 @@
             font-weight: 700;
         }
         .loader {
-            border: 8px solid var(--bg-secondary);
-            border-top: 8px solid var(--primary-color);
+            border: 5px solid var(--bg-secondary);
+            border-top: 5px solid var(--primary-color);
             border-radius: 50%;
-            width: 50px; height: 50px;
+            width: 35px; height: 35px;
             animation: none;
         }
         @keyframes fastSpin {
@@ -76,7 +76,6 @@
         }
 
         .logo-image { height: 40px; width: auto; vertical-align: middle; transition: none; }
-        /* LOGO UPDATE: Invert logo colors for dark mode */
         body.dark-mode .logo-image {
             filter: brightness(0) invert(1);
         }
@@ -369,7 +368,6 @@
             .pricing-section h1 { font-size: 2em; }
             .equipment-display { font-size: 1.1em; padding: 10px 20px; }
             .pricing-container { flex-direction: column; align-items: center; gap: 25px; }
-            .pricing-card { max-width: 90%; padding: 30px 20px; }
             .pricing-card.cross-border { transform: translateY(0); }
             .pricing-card.cross-border:hover { transform: translateY(-8px); }
             .main-footer { padding: 30px 20px; }
@@ -381,6 +379,12 @@
             .pricing-section h1 { font-size: 1.8em; }
             .price-display { font-size: 3em; }
             .btn-secondary-icon { font-size: 0.9em; width: 35px; height: 35px; }
+        }
+        * {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
     </style>
 </head>
@@ -468,7 +472,7 @@
                 <li><a href="#">Terms of Service</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-            <p>&copy; <span id="current-year">2025</span> TrackLink GPS Solutions. All rights reserved.</p>
+            <p style="color: #555555;">&copy; <span id="current-year">2025</span> TrackLink GPS Solutions. All rights reserved.</p>
             <div class="social-icons">
                 <a href="https://www.facebook.com/Tracklink.Official" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                 <a href="https://www.tiktok.com/@tracklink_1" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
@@ -478,6 +482,16 @@
     </div>
 
     <script>
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+        document.onkeydown = function(e) {
+            if (e.keyCode == 123) { return false; }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { return false; }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) { return false; }
+            if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { return false; }
+            if (e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) { return false; }
+        };
         document.addEventListener('DOMContentLoaded', () => {
             const body = document.body;
             const modeToggle = document.getElementById('mode-toggle');

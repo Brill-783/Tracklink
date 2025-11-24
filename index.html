@@ -48,33 +48,8 @@
             letter-spacing: 0.02em;
             font-weight: 700;
         }
-
-        /* --- STYLES FOR COUNTER --- */
-        .visit-counter {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: var(--primary-color);
-            color: var(--bg-primary);
-            padding: 10px 15px;
-            border-radius: 5px;
-            font-weight: 600;
-            font-size: 0.9em;
-            z-index: 10000;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            /* Note for user: This counter is local and persists only for you. */
-        }
-        .counter-number {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 800;
-            letter-spacing: 1px;
-            font-size: 1.1em;
-        }
-        /* --- END COUNTER STYLES --- */
+        
+        /* Note: The .visit-counter and .counter-number styles have been removed. */
 
         .loader {
             border: 4px solid var(--bg-secondary);
@@ -420,10 +395,6 @@
         <div id="center-spinner" class="loader"></div>
     </div>
 
-    <div class="visit-counter">
-        <i class="fas fa-users" style="margin-right: 3px;"></i> Total Visitors: 
-        <span id="view-count-display" class="counter-number">0</span>
-    </div>
     <div id="main-content">
         <header class="main-header">
             <div class="logo-container">
@@ -576,44 +547,7 @@
 
         document.addEventListener('DOMContentLoaded', () => {
 
-            // ==========================================================
-            // === PERSISTENT (LOCAL) VISITOR COUNTER LOGIC ===
-            // ==========================================================
-            const countDisplay = document.getElementById('view-count-display');
-            const storageKey = 'tracklink_local_visit_count';
-            
-            // 1. Get the current count from local storage. If null, start at 0.
-            let currentCount = parseInt(localStorage.getItem(storageKey)) || 0;
-            
-            // 2. Increment the count once for the current page load (the "visit")
-            currentCount += 1;
-
-            // 3. Save the new count back to local storage immediately
-            localStorage.setItem(storageKey, currentCount);
-
-            // 4. Start the slow, endless animation from this new count
-            const slowInterval = 3000; // 3 seconds per increment
-            
-            // Display the current (initial) persistent count
-            if (countDisplay) {
-                countDisplay.textContent = currentCount.toLocaleString();
-            }
-
-            // Start the slow, endless count from the current persistent number
-            function startEndlessCount() {
-                // We use the already loaded 'currentCount' as the starting point
-                setInterval(() => {
-                    currentCount += 1;
-                    // Save the new count to local storage so it persists on next refresh
-                    localStorage.setItem(storageKey, currentCount);
-                    countDisplay.textContent = currentCount.toLocaleString();
-                }, slowInterval);
-            }
-            
-            // Start the slow, endless counting when the page loads
-            startEndlessCount();
-            // ==========================================================
-
+            // The visitor counter JavaScript logic has been entirely removed.
 
             const body = document.body;
             const modeToggle = document.getElementById('mode-toggle');

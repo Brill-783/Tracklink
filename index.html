@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TrackLink</title> <link rel="preconnect" href="https://fonts.googleapis.com">
+    <title>TrackLink</title> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <style>
@@ -49,9 +49,7 @@
             font-weight: 700;
         }
 
-        /* ... [Your other CSS styles remain the same] ... */
-
-        /* --- NEW STYLES FOR COUNTER --- */
+        /* --- STYLES FOR COUNTER --- */
         .visit-counter {
             position: fixed;
             bottom: 20px;
@@ -64,8 +62,19 @@
             font-size: 0.9em;
             z-index: 10000;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            /* Note for user: This counter is local and persists only for you. */
         }
-        /* --- END NEW STYLES --- */
+        .counter-number {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            letter-spacing: 1px;
+            font-size: 1.1em;
+        }
+        /* --- END COUNTER STYLES --- */
 
         .loader {
             border: 4px solid var(--bg-secondary);
@@ -412,7 +421,8 @@
     </div>
 
     <div class="visit-counter">
-        Total Visits: <span id="view-count-display">0</span>
+        <i class="fas fa-users" style="margin-right: 3px;"></i> Total Visitors: 
+        <span id="view-count-display" class="counter-number">0</span>
     </div>
     <div id="main-content">
         <header class="main-header">
@@ -493,7 +503,7 @@
 
             <section class="features-preview" id="features">
                 <h2>The Intelligence You Need, Right When You Need It.</h2>
-<p>Advanced smart-operations features designed for demanding commercial and logistical operations.</p>
+                <p>Advanced smart-operations features designed for demanding commercial and logistical operations.</p>
                 <div class="feature-grid">
 
                     <div class="feature-item">
@@ -563,31 +573,46 @@
             if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { return false; }
             if (e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) { return false; }
         };
+
         document.addEventListener('DOMContentLoaded', () => {
+
+            // ==========================================================
+            // === PERSISTENT (LOCAL) VISITOR COUNTER LOGIC ===
+            // ==========================================================
+            const countDisplay = document.getElementById('view-count-display');
+            const storageKey = 'tracklink_local_visit_count';
             
-            // --- VIEW COUNTING LOGIC START ---
+            // 1. Get the current count from local storage. If null, start at 0.
+            let currentCount = parseInt(localStorage.getItem(storageKey)) || 0;
             
-            const viewCountDisplay = document.getElementById('view-count-display');
-            const hasVisitedKey = 'hasVisitedTrackLink';
-            const totalViewsKey = 'totalSiteViews'; // Represents the server-side count
+            // 2. Increment the count once for the current page load (the "visit")
+            currentCount += 1;
 
-            // 1. Get the current *simulated* total count
-            let currentViews = parseInt(localStorage.getItem(totalViewsKey)) || 0;
+            // 3. Save the new count back to local storage immediately
+            localStorage.setItem(storageKey, currentCount);
 
-            // 2. Check if this specific browser/device has visited before
-            const hasVisited = localStorage.getItem(hasVisitedKey);
-
-            if (!hasVisited) {
-                // 3. This is a "new user" (new browser/device)
-                currentViews++; // Increment the total count
-                localStorage.setItem(totalViewsKey, currentViews); // Save the new total count
-                localStorage.setItem(hasVisitedKey, 'true'); // Set the flag to prevent re-counting
+            // 4. Start the slow, endless animation from this new count
+            const slowInterval = 3000; // 3 seconds per increment
+            
+            // Display the current (initial) persistent count
+            if (countDisplay) {
+                countDisplay.textContent = currentCount.toLocaleString();
             }
 
-            // 4. Display the count
-            viewCountDisplay.textContent = currentViews;
+            // Start the slow, endless count from the current persistent number
+            function startEndlessCount() {
+                // We use the already loaded 'currentCount' as the starting point
+                setInterval(() => {
+                    currentCount += 1;
+                    // Save the new count to local storage so it persists on next refresh
+                    localStorage.setItem(storageKey, currentCount);
+                    countDisplay.textContent = currentCount.toLocaleString();
+                }, slowInterval);
+            }
             
-            // --- VIEW COUNTING LOGIC END ---
+            // Start the slow, endless counting when the page loads
+            startEndlessCount();
+            // ==========================================================
 
 
             const body = document.body;
@@ -604,6 +629,7 @@
                 yearSpan.textContent = new Date().getFullYear();
             }
 
+            // Theme Toggle Logic
             const savedMode = localStorage.getItem('themeMode') || 'dark-mode';
             body.className = savedMode;
             updateModeIcon(savedMode);
@@ -623,6 +649,7 @@
                 updateModeIcon(newMode);
             });
 
+            // Mobile Menu Logic
             if (menuToggle && nav) {
                 const toggleMenu = () => {
                     const isActive = nav.classList.toggle('active');
@@ -648,6 +675,7 @@
                 });
             }
 
+            // Active Navigation Link Logic
             const currentPath = window.location.pathname.split('/').pop().split('#')[0] || 'index.html';
             navLinks.forEach(link => {
                 const linkHref = link.getAttribute('href');
@@ -661,6 +689,7 @@
                 }
             });
 
+            // Page Transition Spinner Logic
             document.querySelectorAll('a[href]').forEach(link => {
                 link.addEventListener('click', (event) => {
                     const href = link.getAttribute('href');
@@ -683,6 +712,7 @@
                 });
             });
 
+            // Image Slider Logic
             const slider = document.getElementById('image-slider');
             if (slider) {
                 const slides = slider.querySelectorAll('.slide');

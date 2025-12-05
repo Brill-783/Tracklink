@@ -38,23 +38,32 @@
 <h1>Let's Connect</h1>
 <p>Ready to streamline your operations or have a question about our telematics solution? Contact our enterprise team directly.</p>
 <div class="contact-info-item"><i class="fas fa-map-marker-alt"></i><div><strong>Our Office Location</strong><p style="margin:0;color:var(--text-secondary);">North Mead, Lusaka, Zambia</p></div></div>
-<div class="contact-info-item"><i class="fas fa-envelope"></i><div><strong>Email Support</strong><p style="margin:0;"><a href="mailto:brilluxury1@gmail.com" style="color:var(--text-secondary);text-decoration:none;">brilluxury1@gmail.com</a></p></div></div>
+<div class="contact-info-item">
+    <i class="fas fa-envelope"></i>
+    <div>
+        <strong>Email Support</strong>
+        <p style="margin:0;"><a href="mailto:brill783@gmail.com" style="color:var(--text-secondary);text-decoration:none;">brill783@gmail.com</a></p>
+    </div>
+</div>
 <div class="contact-info-item"><i class="fas fa-phone-alt"></i><div><strong>Sales & Support Line</strong><p style="margin:0;"><a href="tel:+260573155118" style="color:var(--text-secondary);text-decoration:none;">+260 573 155 118</a></p></div></div>
 </div>
 <div class="contact-form-container">
 <h2>Send Us a Message</h2>
 <form id="contact-form">
-<div class="form-group"><label for="name">Full Name</label>
-<input type="text" id="name" name="name" required></div>
-<div class="form-group">
-<label for="email">Work Email</label>
-<input type="email" id="email" name="email" required></div>
-<div class="form-group">
-<label for="company">Company Name</label><input type="text" id="company" name="company">
+    <input type="hidden" name="subject" value="TrackLink Website Inquiry">
+    <div class="form-group"><label for="name">Full Name</label>
+    <input type="text" id="name" name="name" required></div>
+    <div class="form-group">
+    <label for="email">Work Email</label>
+    <input type="email" id="email" name="email" required></div>
+    <div class="form-group">
+    <label for="company">Company Name</label><input type="text" id="company" name="company">
+    </div>
+    <div class="form-group">
+    <label for="message">Your Message</label><textarea id="message" name="message" required></textarea></div>
+    <button type="submit" class="btn btn-success" style="width:100%;margin-top:15px;padding:15px;">Submit Inquiry</button>
+</form>
 </div>
-<div class="form-group">
-<label for="message">Your Message</label><textarea id="message" name="message" required></textarea></div>
-<button type="submit" class="btn btn-success" style="width:100%;margin-top:15px;padding:15px;">Submit Inquiry</button></form></div>
 </section>
 </main>
 <footer class="main-footer">
@@ -75,8 +84,10 @@
 
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
+// Initialize EmailJS with Public Key
 (function(){emailjs.init('_VvtSbKVpx2kWd7a4')})();
 
+// Disabling Developer Tools (optional protection)
 document.addEventListener('contextmenu', function(e){e.preventDefault()});
 document.onkeydown=function(e){
     if(e.keyCode==123){return false}
@@ -151,16 +162,23 @@ document.addEventListener('DOMContentLoaded',() => {
         })
     });
 
+    // EmailJS Form Submission Logic
     const form=document.getElementById('contact-form');
     form.addEventListener('submit',function(e){
         e.preventDefault();
-        // CHANGED: Updated keys to match common template variable names (name, email)
+        
+        const subjectField = form.querySelector('input[name="subject"]');
+
+        // This is the data object that MUST match your EmailJS template variables
         const data = {
             name: document.getElementById('name').value.trim(), 
             email: document.getElementById('email').value.trim(), 
             company: document.getElementById('company').value.trim(),
-            message: document.getElementById('message').value.trim()
+            message: document.getElementById('message').value.trim(),
+            subject: subjectField ? subjectField.value : "TrackLink Website Inquiry"
         };
+
+        // Ensure you have confirmed that the 'To' email in template_3n9b2ge is brill783@gmail.com
         emailjs.send('service_zkjd26g','template_3n9b2ge', data)
         .then(function(){
             alert('Message sent successfully!');

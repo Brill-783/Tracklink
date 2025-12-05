@@ -87,7 +87,6 @@
 // Initialize EmailJS with Public Key
 (function(){emailjs.init('_VvtSbKVpx2kWd7a4')})();
 
-// Disabling Developer Tools (optional protection)
 document.addEventListener('contextmenu', function(e){e.preventDefault()});
 document.onkeydown=function(e){
     if(e.keyCode==123){return false}
@@ -169,7 +168,7 @@ document.addEventListener('DOMContentLoaded',() => {
         
         const subjectField = form.querySelector('input[name="subject"]');
 
-        // This is the data object that MUST match your EmailJS template variables
+        // Data object must match your EmailJS template variables (name, email, etc.)
         const data = {
             name: document.getElementById('name').value.trim(), 
             email: document.getElementById('email').value.trim(), 
@@ -178,11 +177,20 @@ document.addEventListener('DOMContentLoaded',() => {
             subject: subjectField ? subjectField.value : "TrackLink Website Inquiry"
         };
 
-        // Ensure you have confirmed that the 'To' email in template_3n9b2ge is brill783@gmail.com
+        // Send email via EmailJS
         emailjs.send('service_zkjd26g','template_3n9b2ge', data)
         .then(function(){
             alert('Message sent successfully!');
             form.reset();
+            
+            // 🚀 GTM CONVERSION TRACKING: Fire custom event on success
+            if (window.dataLayer) {
+                window.dataLayer.push({
+                    'event': 'form_submit_success',  // Use this string in your GTM Custom Event Trigger
+                    'form_name': 'contact_form'
+                });
+            }
+
         },function(error){
             alert('Oops! Something went wrong. Please try again.');
             console.error('EmailJS Error:', error);

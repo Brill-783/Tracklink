@@ -9,7 +9,44 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <style>
-:root{--primary-color:#00B4FF;--primary-dark:#0090CC;--bg-primary:#121212;--bg-secondary:#1e1e1e;--text-primary:#ffffff;--text-secondary:#a0a0a0;--shadow-light:0 4px 15px rgba(0,180,255,0.25);--shadow-dark:0 10px 30px rgba(0,0,0,0.5);--header-shadow:var(--shadow-dark);--success-color:#00E676}body.light-mode{--bg-primary:#f8f8f8;--bg-secondary:#ffffff;--text-primary:#212121;--text-secondary:#555555;--shadow-light:0 4px 15px rgba(0,0,0,0.05);--shadow-dark:0 10px 30px rgba(0,0,0,0.1);--header-shadow:0 2px 10px rgba(0,0,0,0.1);--footer-bg-light-mode:#101010;--footer-text-light-mode:#f0f0f0}body{font-family:'Inter',Arial,sans-serif;margin:0;padding:0;line-height:1.6;background-color:var(--bg-primary);color:var(--text-primary);transition:background-color .4s ease,color .4s ease;min-width:320px}h1,h2,h3{font-family:'Poppins',sans-serif;letter-spacing:.02em;font-weight:700}.loader{border:5px solid var(--bg-secondary);border-top:5px solid var(--primary-color);border-radius:50%;width:35px;height:35px}@keyframes fastSpin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}.loader.link-spin{animation:fastSpin 1.5s linear infinite}#link-spinner-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:var(--bg-primary);z-index:9999;display:none;justify-content:center;align-items:center;opacity:0;transition:opacity .3s ease}.logo-image{height:40px;width:auto;vertical-align:middle;transition:none}.btn{text-decoration:none;padding:12px 30px;border-radius:5px;font-weight:600;font-family:'Poppins',sans-serif;transition:background-color .3s ease,transform .1s,box-shadow .3s;text-transform:uppercase;cursor:pointer;border:2px solid transparent;font-size:.9em;white-space:nowrap}.btn-primary{background-color:var(--primary-color);color:var(--bg-primary);border-color:var(--primary-color);box-shadow:0 4px 10px rgba(0,180,255,0.4);font-weight:700;padding:15px 35px;font-size:1em;border-radius:8px}.btn-primary:hover{background-color:var(--primary-dark);border-color:var(--primary-dark);transform:translateY(-3px);box-shadow:0 8px 15px rgba(0,180,255,0.6)}.btn-success{background-color:var(--success-color);color:var(--bg-primary);border-color:var(--success-color);box-shadow:0 4px 10px rgba(0,230,118,0.4);font-weight:700;padding:15px 35px;font-size:1em;border-radius:8px}.btn-success:hover{background-color:#00C853;border-color:#00C853;transform:translateY(-3px);box-shadow:0 8px 15px rgba(0,230,118,0.6)}.btn-secondary-icon{background-color:transparent;color:var(--primary-color);border:1px solid var(--primary-color);width:45px;height:45px;display:flex;justify-content:center;align-items:center;padding:0;border-radius:50%;font-size:1.3em;cursor:pointer;transition:all .3s ease;margin-left:10px}.btn-secondary-icon:hover{background-color:var(--primary-color);color:var(--bg-primary);transform:rotate(45deg)}.main-header{display:flex;justify-content:space-between;align-items:center;padding:20px 80px;background-color:var(--bg-primary);border-bottom:1px solid var(--bg-secondary);position:sticky;top:0;z-index:1000;box-shadow:var(--header-shadow)}.main-nav ul{list-style:none;padding:0;margin:0;display:flex;gap:40px}.nav-link{text-decoration:none;color:var(--text-secondary);font-weight:500;padding:5px 0;transition:color .3s ease,border-bottom .3s ease;text-transform:uppercase;font-size:.95em;font-family:'Inter',sans-serif;white-space:nowrap}.nav-link:hover,.nav-link.active{color:var(--primary-color);border-bottom:3px solid var(--primary-color)}.header-actions{display:flex;align-items:center;gap:10px}.menu-toggle{display:none;cursor:pointer;font-size:1.5em;color:var(--primary-color);margin-left:15px;transition:color .3s ease}.contact-section{padding:80px 10%;background-color:var(--bg-secondary);display:flex;gap:80px;justify-content:center;flex-wrap:wrap}.contact-section h1{font-size:3em;color:var(--primary-color);margin-bottom:15px}.contact-details{max-width:400px}.contact-details p{font-size:1.1em;color:var(--text-secondary);margin-bottom:40px}.contact-info-item{display:flex;align-items:flex-start;margin-bottom:30px}.contact-info-item i{font-size:1.5em;color:var(--primary-color);margin-right:20px;margin-top:5px}.contact-info-item strong{display:block;color:var(--text-primary);font-weight:600;font-size:1.1em}.contact-info-item p a{color:var(--text-secondary);text-decoration:none;transition:color .3s}.contact-info-item p a:hover{color:var(--primary-color)}.contact-form-container{flex-grow:1;max-width:600px;background-color:var(--bg-primary);padding:40px;border-radius:10px;box-shadow:var(--shadow-dark)}.contact-form-container h2{margin-top:0;font-size:2em;color:var(--text-primary);margin-bottom:30px}.form-group{margin-bottom:20px}label{display:block;margin-bottom:8px;font-weight:500;color:var(--text-secondary)}input[type="text"],input[type="email"],textarea{width:100%;padding:12px;border:1px solid var(--bg-secondary);border-radius:5px;background-color:var(--bg-secondary);color:var(--text-primary);font-size:1em;box-sizing:border-box;transition:border-color .3s}input[type="text"]:focus,input[type="email"]:focus,textarea:focus{border-color:var(--primary-color);outline:none}textarea{resize:vertical;min-height:150px}.main-footer{background-color:var(--bg-primary);color:var(--text-secondary);padding:45px 80px;font-size:.9em;text-align:center;border-top:1px solid var(--bg-secondary)}body.light-mode .main-footer{background-color:var(--footer-bg-light-mode);color:var(--footer-text-light-mode);border-top:1px solid #333}.footer-links{list-style:none;padding:0;margin:20px 0;display:flex;justify-content:center;gap:25px}.footer-links a{color:var(--primary-color);text-decoration:none;font-family:'Inter',sans-serif;font-weight:400;transition:color .3s}.footer-links a:hover{color:var(--text-primary)}body.light-mode .footer-links a:hover{color:var(--footer-text-light-mode)}.social-icons a{color:var(--primary-color);margin:0 10px;font-size:1.8em;text-decoration:none;transition:color .3s}.social-icons a:hover{color:var(--text-secondary)}body.light-mode .social-icons a:hover{color:var(--footer-text-light-mode)}body.dark-mode .logo-image{filter:brightness(0) invert(1)}@media (max-width:992px){.main-header{padding:15px 40px}.main-nav ul{gap:20px}.contact-section{padding:60px 5%;gap:40px}.contact-details,.contact-form-container{max-width:100%}}@media (max-width:768px){.main-header{padding:15px 20px;flex-wrap:wrap}.menu-toggle{display:block}.header-actions{gap:5px}.main-nav{order:3;width:100%;margin-top:10px;display:none}.main-nav.active{display:flex;flex-direction:column;background-color:var(--bg-primary);position:absolute;top:70px;left:0;right:0;z-index:999;border-bottom:1px solid var(--bg-secondary);box-shadow:0 5px 10px rgba(0,0,0,0.5)}.main-nav ul{flex-direction:column;gap:5px;text-align:center;padding:10px 0}.nav-link{padding:10px 20px;border-bottom:none!important}.nav-link.active{border-left:3px solid var(--primary-color)!important;border-bottom:none!important}.btn-primary,.btn-success{padding:10px 18px;font-size:.9em}.btn-secondary-icon{height:40px;width:40px;font-size:1.1em;margin-left:10px}.contact-section h1{font-size:2.5em}.contact-form-container{padding:30px}.main-footer{padding:30px 20px}.footer-links{flex-direction:column;gap:10px}}@media (max-width:480px){.logo-image{height:35px}.contact-section h1{font-size:2em}.contact-form-container h2{font-size:1.8em}.btn-secondary-icon{font-size:.9em;width:35px;height:35px}*{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}}
+:root{--primary-color:#00B4FF;--primary-dark:#0090CC;--bg-primary:#121212;--bg-secondary:#1e1e1e;--text-primary:#ffffff;--text-secondary:#a0a0a0;--shadow-light:0 4px 15px rgba(0,180,255,0.25);--shadow-dark:0 10px 30px rgba(0,0,0,0.5);--header-shadow:var(--shadow-dark);--success-color:#00E676}body.light-mode{--bg-primary:#f8f8f8;--bg-secondary:#ffffff;--text-primary:#212121;--text-secondary:#555555;--shadow-light:0 4px 15px rgba(0,0,0,0.05);--shadow-dark:0 10px 30px rgba(0,0,0,0.1);--header-shadow:0 2px 10px rgba(0,0,0,0.1);--footer-bg-light-mode:#101010;--footer-text-light-mode:#f0f0f0}body{font-family:'Inter',Arial,sans-serif;margin:0;padding:0;line-height:1.6;background-color:var(--bg-primary);color:var(--text-primary);transition:background-color .4s ease,color .4s ease;min-width:320px}h1,h2,h3{font-family:'Poppins',sans-serif;letter-spacing:.02em;font-weight:700}.loader{border:5px solid var(--bg-secondary);border-top:5px solid var(--primary-color);border-radius:50%;width:35px;height:35px}@keyframes fastSpin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}.loader.link-spin{animation:fastSpin 1.5s linear infinite}#link-spinner-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:var(--bg-primary);z-index:9999;display:none;justify-content:center;align-items:center;opacity:0;transition:opacity .3s ease}.logo-image{height:40px;width:auto;vertical-align:middle;transition:none}.btn{text-decoration:none;padding:12px 30px;border-radius:5px;font-weight:600;font-family:'Poppins',sans-serif;transition:background-color .3s ease,transform .1s,box-shadow .3s;text-transform:uppercase;cursor:pointer;border:2px solid transparent;font-size:.9em;white-space:nowrap}.btn-primary{background-color:var(--primary-color);color:var(--bg-primary);border-color:var(--primary-color);box-shadow:0 4px 10px rgba(0,180,255,0.4);font-weight:700;padding:15px 35px;font-size:1em;border-radius:8px}.btn-primary:hover{background-color:var(--primary-dark);border-color:var(--primary-dark);transform:translateY(-3px);box-shadow:0 8px 15px rgba(0,180,255,0.6)}.btn-success{background-color:var(--success-color);color:var(--bg-primary);border-color:var(--success-color);box-shadow:0 4px 10px rgba(0,230,118,0.4);font-weight:700;padding:15px 35px;font-size:1em;border-radius:8px}.btn-success:hover{background-color:#00C853;border-color:#00C853;transform:translateY(-3px);box-shadow:0 8px 15px rgba(0,230,118,0.6)}.btn-secondary-icon{background-color:transparent;color:var(--primary-color);border:1px solid var(--primary-color);width:45px;height:45px;display:flex;justify-content:center;align-items:center;padding:0;border-radius:50%;font-size:1.3em;cursor:pointer;transition:all .3s ease;margin-left:10px}.btn-secondary-icon:hover{background-color:var(--primary-color);color:var(--bg-primary);transform:rotate(45deg)}.main-header{display:flex;justify-content:space-between;align-items:center;padding:20px 80px;background-color:var(--bg-primary);border-bottom:1px solid var(--bg-secondary);position:sticky;top:0;z-index:1000;box-shadow:var(--header-shadow)}.main-nav ul{list-style:none;padding:0;margin:0;display:flex;gap:40px}.nav-link{text-decoration:none;color:var(--text-secondary);font-weight:500;padding:5px 0;transition:color .3s ease,border-bottom .3s ease;text-transform:uppercase;font-size:.95em;font-family:'Inter',sans-serif;white-space:nowrap}.nav-link:hover,.nav-link.active{color:var(--primary-color);border-bottom:3px solid var(--primary-color)}.header-actions{display:flex;align-items:center;gap:10px}.menu-toggle{display:none;cursor:pointer;font-size:1.5em;color:var(--primary-color);margin-left:15px;transition:color .3s ease}.contact-section{padding:80px 10%;background-color:var(--bg-secondary);display:flex;gap:80px;justify-content:center;flex-wrap:wrap}.contact-section h1{font-size:3em;color:var(--primary-color);margin-bottom:15px}.contact-details{max-width:400px}.contact-details p{font-size:1.1em;color:var(--text-secondary);margin-bottom:40px}.contact-info-item{display:flex;align-items:flex-start;margin-bottom:30px}.contact-info-item i{font-size:1.5em;color:var(--primary-color);margin-right:20px;margin-top:5px}.contact-info-item strong{display:block;color:var(--text-primary);font-weight:600;font-size:1.1em}.contact-info-item p a{color:var(--text-secondary);text-decoration:none;transition:color .3s}.contact-info-item p a:hover{color:var(--primary-color)}.contact-form-container{flex-grow:1;max-width:600px;background-color:var(--bg-primary);padding:40px;border-radius:10px;box-shadow:var(--shadow-dark);text-align:center;}.contact-form-container h2{margin-top:0;font-size:2em;color:var(--text-primary);margin-bottom:30px}.form-group{margin-bottom:20px}label{display:block;margin-bottom:8px;font-weight:500;color:var(--text-secondary)}input[type="text"],input[type="email"],textarea{width:100%;padding:12px;border:1px solid var(--bg-secondary);border-radius:5px;background-color:var(--bg-secondary);color:var(--text-primary);font-size:1em;box-sizing:border-box;transition:border-color .3s}input[type="text"]:focus,input[type="email"]:focus,textarea:focus{border-color:var(--primary-color);outline:none}textarea{resize:vertical;min-height:150px}.main-footer{background-color:var(--bg-primary);color:var(--text-secondary);padding:45px 80px;font-size:.9em;text-align:center;border-top:1px solid var(--bg-secondary)}body.light-mode .main-footer{background-color:var(--footer-bg-light-mode);color:var(--footer-text-light-mode);border-top:1px solid #333}.footer-links{list-style:none;padding:0;margin:20px 0;display:flex;justify-content:center;gap:25px}.footer-links a{color:var(--primary-color);text-decoration:none;font-family:'Inter',sans-serif;font-weight:400;transition:color .3s}.footer-links a:hover{color:var(--text-primary)}body.light-mode .footer-links a:hover{color:var(--footer-text-light-mode)}.social-icons a{color:var(--primary-color);margin:0 10px;font-size:1.8em;text-decoration:none;transition:color .3s}.social-icons a:hover{color:var(--text-secondary)}body.light-mode .social-icons a:hover{color:var(--footer-text-light-mode)}body.dark-mode .logo-image{filter:brightness(0) invert(1)}@media (max-width:992px){.main-header{padding:15px 40px}.main-nav ul{gap:20px}.contact-section{padding:60px 5%;gap:40px}.contact-details,.contact-form-container{max-width:100%}}@media (max-width:768px){.main-header{padding:15px 20px;flex-wrap:wrap}.menu-toggle{display:block}.header-actions{gap:5px}.main-nav{order:3;width:100%;margin-top:10px;display:none}.main-nav.active{display:flex;flex-direction:column;background-color:var(--bg-primary);position:absolute;top:70px;left:0;right:0;z-index:999;border-bottom:1px solid var(--bg-secondary);box-shadow:0 5px 10px rgba(0,0,0,0.5)}.main-nav ul{flex-direction:column;gap:5px;text-align:center;padding:10px 0}.nav-link{padding:10px 20px;border-bottom:none!important}.nav-link.active{border-left:3px solid var(--primary-color)!important;border-bottom:none!important}.btn-primary,.btn-success{padding:10px 18px;font-size:.9em}.btn-secondary-icon{height:40px;width:40px;font-size:1.1em;margin-left:10px}.contact-section h1{font-size:2.5em}.contact-form-container{padding:30px}.main-footer{padding:30px 20px}.footer-links{flex-direction:column;gap:10px}}@media (max-width:480px){.logo-image{height:35px}.contact-section h1{font-size:2em}.contact-form-container h2{font-size:1.8em}.btn-secondary-icon{font-size:.9em;width:35px;height:35px}*{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}}
+
+/* NEW STYLES FOR BUTTONS */
+.contact-actions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.btn-whatsapp {
+    background-color: #25D366;
+    color: var(--bg-primary);
+    border-color: #25D366;
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4);
+    font-weight: 700;
+    padding: 15px 35px;
+    font-size: 1em;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color .3s ease, transform .1s, box-shadow .3s;
+}
+
+.btn-whatsapp:hover {
+    background-color: #1DA851;
+    border-color: #1DA851;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(37, 211, 102, 0.6);
+}
+
+.btn-whatsapp i {
+    margin-right: 10px;
+    font-size: 1.2em;
+}
 </style>
 </head>
 <body class="dark-mode">
@@ -48,22 +85,21 @@
 <div class="contact-info-item"><i class="fas fa-phone-alt"></i><div><strong>Sales & Support Line</strong><p style="margin:0;"><a href="tel:+260573155118" style="color:var(--text-secondary);text-decoration:none;">+260 573 155 118</a></p></div></div>
 </div>
 <div class="contact-form-container">
-<h2>Send Us a Message</h2>
-<form id="contact-form">
-    <input type="hidden" name="subject" value="TrackLink Website Inquiry">
-    <div class="form-group"><label for="name">Full Name</label>
-    <input type="text" id="name" name="name" required></div>
-    <div class="form-group">
-    <label for="email">Work Email</label>
-    <input type="email" id="email" name="email" required></div>
-    <div class="form-group">
-    <label for="company">Company Name</label><input type="text" id="company" name="company">
+    <h2>Send us a WhatsApp Message or Call Now</h2>
+    <p style="color:var(--text-secondary); margin-bottom: 30px;">
+        Click the options below to get in touch instantly.
+    </p>
+
+    <div class="contact-actions-container">
+        <a href="https://wa.me/260573155118?text=Hello%2C%20I%20have%20an%20inquiry%20about%20TrackLink%20GPS%20Solutions." target="_blank" class="btn btn-whatsapp" title="Send us a WhatsApp message">
+            <i class="fab fa-whatsapp"></i> Send us a WhatsApp Message
+        </a>
+
+        <a href="tel:+260573155118" class="btn btn-success" style="width:100%; padding:15px;" title="Call us directly">
+            <i class="fas fa-phone-alt"></i> Call Sales & Support Line
+        </a>
     </div>
-    <div class="form-group">
-    <label for="message">Your Message</label><textarea id="message" name="message" required></textarea></div>
-    <button type="submit" class="btn btn-success" style="width:100%;margin-top:15px;padding:15px;">Submit Inquiry</button>
-</form>
-</div>
+    </div>
 </section>
 </main>
 <footer class="main-footer">
@@ -82,11 +118,7 @@
 </footer>
 </div>
 
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
-// Initialize EmailJS with Public Key
-(function(){emailjs.init('_VvtSbKVpx2kWd7a4')})();
-
 document.addEventListener('contextmenu', function(e){e.preventDefault()});
 document.onkeydown=function(e){
     if(e.keyCode==123){return false}
@@ -151,7 +183,7 @@ document.addEventListener('DOMContentLoaded',() => {
     document.querySelectorAll('a[href]').forEach(link => {
         link.addEventListener('click',(event) => {
             const href=link.getAttribute('href');
-            if(href==='https://tracclink.online/ui/auth/login'||href.startsWith('mailto:')||href.startsWith('tel:')||href.startsWith('#')||link.getAttribute('target')==='_blank'){return}
+            if(href==='https://tracclink.online/ui/auth/login'||href.startsWith('mailto:')||href.startsWith('tel:')||href.startsWith('#')||link.getAttribute('target')==='_blank'||href.includes('wa.me')){return}
             if(href&&href!=='#'){
                 event.preventDefault();
                 spinnerOverlay.style.display='flex';
@@ -159,42 +191,6 @@ document.addEventListener('DOMContentLoaded',() => {
                 setTimeout(()=>{window.location.href=href},800)
             }
         })
-    });
-
-    // EmailJS Form Submission Logic
-    const form=document.getElementById('contact-form');
-    form.addEventListener('submit',function(e){
-        e.preventDefault();
-        
-        const subjectField = form.querySelector('input[name="subject"]');
-
-        // Data object must match your EmailJS template variables (name, email, etc.)
-        const data = {
-            name: document.getElementById('name').value.trim(), 
-            email: document.getElementById('email').value.trim(), 
-            company: document.getElementById('company').value.trim(),
-            message: document.getElementById('message').value.trim(),
-            subject: subjectField ? subjectField.value : "TrackLink Website Inquiry"
-        };
-
-        // Send email via EmailJS
-        emailjs.send('service_zkjd26g','template_3n9b2ge', data)
-        .then(function(){
-            alert('Message sent successfully!');
-            form.reset();
-            
-            // 🚀 GTM CONVERSION TRACKING: Fire custom event on success
-            if (window.dataLayer) {
-                window.dataLayer.push({
-                    'event': 'form_submit_success',  // Use this string in your GTM Custom Event Trigger
-                    'form_name': 'contact_form'
-                });
-            }
-
-        },function(error){
-            alert('Oops! Something went wrong. Please try again.');
-            console.error('EmailJS Error:', error);
-        });
     });
 });
 </script>
